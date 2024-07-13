@@ -26,11 +26,11 @@ if (code) {
       let accessToken = data["access_token"];
       console.log(accessToken)
 
-      fetch(`https://graph.facebook.com/v16.0/803246971960239?fields=instagram_business_account&access_token=${accessToken}`)
+      fetch(`https://graph.facebook.com/v20.0/me/accounts?fields=id%2Cname%2Caccess_token%2Cinstagram_business_account&access_token=${accessToken}`)
         .then(response => response.json())
         .then(userData => {
           console.log(userData)
-          alert('User Data:', userData);
+          alert(userData);
         });
     })
     .catch(error => console.error('Error:', error));
