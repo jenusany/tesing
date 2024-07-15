@@ -27,11 +27,7 @@ if (code) {
       console.log(accessToken)
 
       fetch(`https://graph.facebook.com/v5.0/me/accounts?access_token=${accessToken}`)
-        .then(response => response.json())
-        .then(userData => {
-          console.log(userData)
-          alert(userData);
-        });
+        .then(response => console.log(response))
     })
     .catch(error => console.error('Error:', error));
 }
