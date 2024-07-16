@@ -31,7 +31,7 @@ if (code) {
         .then(userdata => {
           console.log(userdata["data"][0]["id"])
           const id = userdata["data"][0]["id"];
-          fetch(`https://graph.facebook.com/v20.0/${id}?fields=instagram_business_account&access_token=${access-token}`)
+          fetch(`https://graph.facebook.com/v20.0/${id}?fields=instagram_business_account&access_token=${accessToken}`)
             .then(response => response.json())
             .then(IGdata => {
               const IG = IGdata["instagram_business_account"]["id"]
