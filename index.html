@@ -22,15 +22,16 @@ if (code) {
   fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=803246971960239&redirect_uri=https://jenusany.github.io/tesing/&client_secret=c19298b4ce75926bf2dc0177b77e5912&code=${code}`)
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       let accessToken = data["access_token"];
       console.log(accessToken)
 
       fetch(`https://graph.facebook.com/v20.0/me/accounts?fields=id&access_token=${accessToken}`)
         .then(response => response.json())
         .then(userdata => {
-          const id = userdata["data"];
           console.log(userdata)
-          alert(userdata["id"]);
+          const id = userdata["data"];
+          alert(userdata[0]);
         });
     })
     .catch(error => console.error('Error:', error));
