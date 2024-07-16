@@ -27,9 +27,16 @@ if (code) {
 
       fetch(`https://graph.facebook.com/v20.0/me?access_token=${accessToken}`)
         .then(response => response.json())
-        .then(data => {
-          console.log(data)
-          alert(data("id"));
+        .then(userdata => {
+          const id = userdata["id"];
+          console.log(userdata)
+          alert(userdata["id"]);
+
+          fetch(`https://graph.facebook.com/v20.0/${id}?fields=instagram_business_account&access_token=${accessToken}`)
+            .then(response => response.json())
+            .then(IGdata => {
+              console.log(IGdata)
+            })
         });
     })
     .catch(error => console.error('Error:', error));
