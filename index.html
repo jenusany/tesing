@@ -30,6 +30,8 @@ if (code) {
         .then(response => response.json())
         .then(userdata => {
           console.log(userdata)
+          console.log(userdata["data"])
+          console.log(userdata["data"][0])
           const id = userdata["data"];
           alert(userdata[0]);
         });
