@@ -25,7 +25,7 @@ if (code) {
       let accessToken = data["access_token"];
       console.log(accessToken)
 
-      fetch(`https://graph.facebook.com/v20.0/me?access_token=${accessToken}`)
+      fetch(`https://graph.facebook.com/v20.0/me/accounts?fields=id&access_token=${accessToken}`)
         .then(response => response.json())
         .then(userdata => {
           const id = userdata["id"];
