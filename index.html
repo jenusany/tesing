@@ -30,10 +30,9 @@ if (code) {
         .then(response => response.json())
         .then(userdata => {
           console.log(userdata)
-          console.log(userdata["data"])
-          console.log(userdata["data"][0])
-          const id = userdata["data"];
-          alert(userdata[0]);
+          console.log(userdata["data"][0]["id"])
+          const id = userdata["data"][0]["id"];
+          alert(id);
         });
     })
     .catch(error => console.error('Error:', error));
