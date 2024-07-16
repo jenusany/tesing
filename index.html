@@ -29,10 +29,15 @@ if (code) {
       fetch(`https://graph.facebook.com/v20.0/me/accounts?fields=id&access_token=${accessToken}`)
         .then(response => response.json())
         .then(userdata => {
-          console.log(userdata)
           console.log(userdata["data"][0]["id"])
           const id = userdata["data"][0]["id"];
-          alert(id);
+          fetch(`https://graph.facebook.com/v20.0/${id}?fields=instagram_business_account&access_token=${access-token}`)
+            .then(response => response.json())
+            .then(IGdata => {
+              const IG = IGdata["instagram_business_account"]["id"]
+              console.log(IGdata)
+              alert(IGdata)
+            })
         });
     })
     .catch(error => console.error('Error:', error));
