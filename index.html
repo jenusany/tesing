@@ -25,11 +25,11 @@ if (code) {
       let accessToken = data["access_token"];
       console.log(accessToken)
 
-      fetch(`https://graph.facebook.com/v20.0/me/accounts?access_token=${accessToken}`)
+      fetch(`https://graph.facebook.com/v20.0/me?access_token=${accessToken}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)
-          alert(data);
+          alert(data("id"));
         });
     })
     .catch(error => console.error('Error:', error));
