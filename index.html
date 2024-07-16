@@ -9,7 +9,6 @@
   <script>
     document.getElementById('loginButton').onclick = function() {
       const appId = '803246971960239';
-      
       const redirectUri = 'https://jenusany.github.io/tesing/';
       const authUrl = `https://www.facebook.com/v11.0/dialog/oauth?client_id=${appId}&redirect_uri=${redirectUri}&scope=instagram_basic,pages_show_list`;
     
@@ -26,7 +25,7 @@ if (code) {
       let accessToken = data["access_token"];
       console.log(accessToken)
 
-      fetch(`https://graph.facebook.com/v5.0/me/accounts?access_token=${accessToken}`)
+      fetch(`https://graph.facebook.com/v11.0/me/accounts?access_token=${accessToken}`)
         .then(response => response.json())
         .then(data => {
           console.log(data)
