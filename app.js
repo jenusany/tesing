@@ -27,6 +27,7 @@ fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=80324697196
               portfolio.addEventListener("click", () => {
                 console.log(businesses[i]["name"])
                 ownedPages(businesses[i]["id"], accessToken)
+                //
               })
             }
         })
