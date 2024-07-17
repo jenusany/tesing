@@ -56,6 +56,6 @@ function instaAccount(pageid, accessToken){
     .then(data => {
       const id = data["instagram_business_account"]["id"]
       console.log(id)
-      //
+
     })
 }
