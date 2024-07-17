@@ -68,6 +68,7 @@ function instaAccount(pageid, accessToken){
           .then(data => {
             console.log(data)
             const pic = data["media_url"]
+            console.log(data["comments"])
             const comments = data["comments"]["data"]
             const img = document.createElement("img")
             img.src = String(pic)
