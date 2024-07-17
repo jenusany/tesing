@@ -63,7 +63,7 @@ function instaAccount(pageid, accessToken){
         const posts = data["data"]
         const postHTML = document.getElementById("posts")
         for(let i = 0; i < posts.length; i++){
-          fetch(`https://graph.facebook.com/v20.0/${posts[i]["id"]}?fields=media_url,caption&access_token=${accessToken}`)
+          fetch(`https://graph.facebook.com/v20.0/${posts[i]["id"]}?fields=media_url,caption,comments&access_token=${accessToken}`)
           .then(response => response.json())
           .then(data => {
             console.log(data)
@@ -72,6 +72,7 @@ function instaAccount(pageid, accessToken){
             const comments = data["comments"]["data"]
             const img = document.createElement("img")
             img.src = String(pic)
+            postHTML.appendChild(img)
             img.addEventListener("click", () => {
               let commentList = [];
               for(let i = 0; i < comments.length; i++){
@@ -79,7 +80,6 @@ function instaAccount(pageid, accessToken){
               }
               console.log(commentList)
             })
-            postHTML.appendChild(img)
           })
         }
 
