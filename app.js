@@ -65,7 +65,7 @@ function instaAccount(pageid, accessToken){
         console.log(posts[0])
         console.log(String(posts[0]))
         for(let i = 0; i < posts.length; i++){
-          fetch(`https://graph.facebook.com/v20.0/${posts[i]}?fields=media_url&access_token=${accessToken}`)
+          fetch(`https://graph.facebook.com/v20.0/${String(posts[i])}?fields=media_url&access_token=${accessToken}`)
           .then(response => console.log(response))
         }
 
