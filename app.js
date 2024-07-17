@@ -61,12 +61,10 @@ function instaAccount(pageid, accessToken){
       .then(response => response.json())
       .then(data => {
         const posts = data["data"]
-        console.log(posts[0]["id"])
-        console.log(String(posts[0]["id"]))
         const postHTML = document.getElementById("posts")
         for(let i = 0; i < posts.length; i++){
-          fetch(`https://graph.facebook.com/v20.0/${String(posts[i]["id"])}?fields=media_url,caption&access_token=${accessToken}`)
-          .then(response => console.log(response))
+          fetch(`https://graph.facebook.com/v20.0/${posts[i]["id"]}?fields=media_url,caption&access_token=${accessToken}`)
+          .then(response => response.json())
           .then(data => {
             console.log(data)
             const pic = data["media_url"]
