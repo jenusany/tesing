@@ -26,9 +26,12 @@ fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=80324697196
               const portfolio = document.createElement("button");
               portfolio.innerText = businesses[i]["name"]
               businessesHTML.appendChild(portfolio)
-              portfolio.addEventListener('click', console.log(businesses[i]["name"] + businesses[i]["id"]))
+              portfolio.addEventListener("click", () => {
+                console.log(businesses[i]["name"] + businesses[i]["id"])
+              })
             }
         })
   })
   .catch(error => console.error('Error:', error));
 }
+
