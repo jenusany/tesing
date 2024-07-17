@@ -40,6 +40,23 @@ function ownedPages(pageid, accessToken){
     .then(response => response.json())
     .then(data => {
       const accounts = data["data"]
-      console.log(accounts)
+      const accountsHTML = document.getElementById('accounts')
+      for(let i = 0; i < businesses.length; i++){
+        const indAcc = document.createElement("button");
+        indAcc.innerText = accounts[i]["name"]
+        accounts.appendChild(indAcc)
+        indAcc.addEventListener("click", () => {
+          instaAccount(accounts[i]["id"], accessToken)
+        })
+      }
+    })
+}
+
+function instaAccount(pageid, accessToken){
+  fetch(`https://graph.facebook.com/v20.0/${pageid}?fields=instagram_business_account&access_token=${accessToken}`)
+    .then(response => response.json())
+    .then(data => {
+      const id = data["instagram_business_account"]["id"]
+      console.log(id)
     })
 }
