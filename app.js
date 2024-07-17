@@ -13,7 +13,7 @@ if (code) {
 fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=803246971960239&redirect_uri=https://jenusany.github.io/tesing/&client_secret=c19298b4ce75926bf2dc0177b77e5912&code=${code}`)
   .then(response => response.json())
   .then(data => {
-    const accessToken = data["access_token"];
+    var accessToken = data["access_token"];
 
     fetch(`https://graph.facebook.com/v20.0/me/businesses?access_token=${accessToken}`)
         .then(response => response.json())
@@ -34,7 +34,7 @@ fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=80324697196
   .catch(error => console.error('Error:', error));
 }
 
-function ownedPages(pageid, accessToken){
+function ownedPages(pageid){
   fetch(`https://graph.facebook.com/v14.0/${pageid}/owned_pages?access_token=${accessToken}`)
     .then(response => response.json())
     .then(data => {
@@ -52,7 +52,7 @@ function ownedPages(pageid, accessToken){
     })
 }
 
-function instaAccount(pageid, accessToken){
+function instaAccount(pageid){
   fetch(`https://graph.facebook.com/v20.0/${pageid}?fields=instagram_business_account&access_token=${accessToken}`)
     .then(response => response.json())
     .then(data => {
@@ -68,10 +68,15 @@ function instaAccount(pageid, accessToken){
           .then(data => {
             console.log(data)
             const pic = data["media_url"]
+            const comments = data["comments"]["data"]
             const img = document.createElement("img")
             img.src = String(pic)
             img.addEventListener("click", () => {
-              console.log(data["caption"])
+              let commentList = [];
+              for(let i = 0; i < comments.length; i++){
+                commentList.push(comments[i]["text"])
+              }
+              console.log(commentList)
             })
             postHTML.appendChild(img)
           })
@@ -82,3 +87,4 @@ function instaAccount(pageid, accessToken){
 
     })
 }
+
