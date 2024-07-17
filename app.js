@@ -47,7 +47,6 @@ function ownedPages(pageid, accessToken){
         accountsHTML.appendChild(indAcc)
         indAcc.addEventListener("click", () => {
           instaAccount(accounts[i]["id"], accessToken)
-          //
         })
       }
     })
