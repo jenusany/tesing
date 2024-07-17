@@ -27,7 +27,7 @@ fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=80324697196
               portfolio.innerText = businesses[i]["name"]
               businessesHTML.appendChild(portfolio)
               portfolio.addEventListener("click", () => {
-                console.log(businesses[i]["name"] + businesses[i]["id"])
+                ownedPages(businesses[i]["id"], accessToken)
               })
             }
         })
@@ -35,3 +35,11 @@ fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=80324697196
   .catch(error => console.error('Error:', error));
 }
 
+function ownedPages(pageid, accessToken){
+  fetch(`https://graph.facebook.com/v14.0/${pageid}/owned_pages?access_token=${accessToken}`)
+    .then(response => response.json())
+    .then(data => {
+      const accounts = data["data"]
+      console.log(accounts)
+    })
+}
