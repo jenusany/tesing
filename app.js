@@ -68,6 +68,7 @@ function instaAccount(pageid, accessToken){
           fetch(`https://graph.facebook.com/v20.0/${String(posts[i]["id"])}?fields=media_url,caption&access_token=${accessToken}`)
           .then(response => console.log(response))
           .then(data => {
+            console.log(data)
             const pic = data["media_url"]
             const img = document.createElement("img")
             img.src = String(pic)
