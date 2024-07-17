@@ -62,7 +62,7 @@ function instaAccount(pageid, accessToken){
       .then(data => {
         const posts = data["data"]
         for(let i = 0; i < posts.length; i++){
-          fetch(`https://graph.facebook.com/v20.0/${posts[i]}/media?fields=media_url&access_token=${accessToken}`)
+          fetch(`https://graph.facebook.com/v20.0/${posts[i]}?fields=media_url&access_token=${accessToken}`)
           .then(response => console.log(response))
         }
 
