@@ -20,7 +20,7 @@ fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=80324697196
     fetch(`https://graph.facebook.com/v20.0/me/businesses?access_token=${accessToken}`)
         .then(response => response.json())
         .then(data => {
-            let businesses = data["data"][0]
+            let businesses = data["data"]
             console.log(businesses)
             console.log(businesses[0])
             //
