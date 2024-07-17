@@ -38,6 +38,7 @@ function ownedPages(pageid, accessToken){
     .then(response => response.json())
     .then(data => {
       const accounts = data["data"]
+      console.log(accounts)
       const accountsHTML = document.getElementById('accounts')
       for(let i = 0; i < businesses.length; i++){
         const indAcc = document.createElement("button");
