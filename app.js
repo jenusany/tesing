@@ -57,7 +57,17 @@ function instaAccount(pageid, accessToken){
     .then(response => response.json())
     .then(data => {
       const id = data["instagram_business_account"]["id"]
-      console.log(id)
+      fetch(`https://graph.facebook.com/v20.0/${id}/media?access_token=${accessToken}`)
+      .then(response => response.json())
+      .then(data => {
+        const posts = data["data"]
+        for(let i = 0; i < posts.length; i++){
+          fetch(`https://graph.facebook.com/v20.0/${posts[i]}/media?fields=media_url&access_token=${accessToken}`)
+          .then(response => console.log(response))
+        }
+
+
+      })
 
     })
 }
