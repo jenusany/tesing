@@ -23,7 +23,6 @@ fetch(`https://graph.facebook.com/v11.0/oauth/access_token?client_id=80324697196
             let businesses = data["data"][0]
             console.log(businesses)
             console.log(businesses[0])
-            //
         })
   })
   .catch(error => console.error('Error:', error));
