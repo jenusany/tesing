@@ -42,7 +42,7 @@ function ownedPages(pageid, accessToken){
       for(let i = 0; i < businesses.length; i++){
         const indAcc = document.createElement("button");
         indAcc.innerText = accounts[i]["name"]
-        accounts.appendChild(indAcc)
+        accountsHTML.appendChild(indAcc)
         indAcc.addEventListener("click", () => {
           instaAccount(accounts[i]["id"], accessToken)
         })
