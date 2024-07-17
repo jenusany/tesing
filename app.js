@@ -41,7 +41,7 @@ function ownedPages(pageid, accessToken){
       const accounts = data["data"]
       console.log(accounts)
       const accountsHTML = document.getElementById('accounts')
-      for(let i = 0; i < businesses.length; i++){
+      for(let i = 0; i < accounts.length; i++){
         const indAcc = document.createElement("button");
         indAcc.innerText = accounts[i]["name"]
         accountsHTML.appendChild(indAcc)
