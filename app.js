@@ -63,9 +63,19 @@ function instaAccount(pageid, accessToken){
         const posts = data["data"]
         console.log(posts[0]["id"])
         console.log(String(posts[0]["id"]))
+        const postHTML = document.getElementById("posts")
         for(let i = 0; i < posts.length; i++){
-          fetch(`https://graph.facebook.com/v20.0/${String(posts[i]["id"])}?fields=media_url&access_token=${accessToken}`)
+          fetch(`https://graph.facebook.com/v20.0/${String(posts[i]["id"])}?fields=media_url,caption&access_token=${accessToken}`)
           .then(response => console.log(response))
+          .then(data => {
+            const pic = data["media_url"]
+            const img = document.createElement("img")
+            img.src = String(pic)
+            img.addEventListener("click", () => {
+              console.log(data["caption"])
+            })
+            postHTML.appendChild(img)
+          })
         }
 
 
