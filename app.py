@@ -14,5 +14,6 @@ def data_processing_function(data):
     processed_data = {"result": "processed", "original": data}
     return processed_data
 
+
 if __name__ == '__main__':
     app.run(debug=True)
