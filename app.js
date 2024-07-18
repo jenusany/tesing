@@ -78,6 +78,9 @@ function instaAccount(pageid, accessToken){
               for(let i = 0; i < comments.length; i++){
                 commentList.push(comments[i]["text"])
               }
+              let json = {
+                "comment-list":commentList
+              }
               console.log(commentList)
             })
           })
